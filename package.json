@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "node ./bin/www",
+    "client": "cd client && npm start"
   },
   "dependencies": {
     "bcrypt": "^5.1.0",
@@ -15,5 +17,8 @@
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^6.9.2",
     "morgan": "~1.9.1"
+  },
+  "devDependencies": {
+    "concurrently": "^7.6.0"
   }
 }

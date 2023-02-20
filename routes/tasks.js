@@ -30,8 +30,12 @@ const authenticate = async (req, res, next) => {
 
 // GET /tasks
 router.get('/', authenticate, async (req, res) => {
-  console.log(req.user);
-  const tasks = await Task.find({user: req.user._id});
+  const title = req.query.title;
+  const tasks = await Task.find(
+    title
+      ? {user: req.user._id, title: {$regex: title, $options: 'i'}}
+      : {user: req.user._id}
+  );
   res.json(tasks);
 });
 
