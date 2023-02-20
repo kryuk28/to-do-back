@@ -7,7 +7,9 @@ This is a ToDo list application built with Express, React, MongoDB, and JWT auth
 ## Installation
 
 Clone this repository to your local machine.
-Install dependencies with `npm install`.
+Install dependencies with `npm install`. <br/>
+Create `.env` file in root directorey and assign a generated `JWT_SECRET` key. <br/>
+Example: `export JWT_SECRET='secret_key'`
 
 ## Usage
 
